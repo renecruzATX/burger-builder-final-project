@@ -13,4 +13,9 @@ app.use(bodyParser.json());
 
 app.use("/orders", OrderRoutes);
 
+app.use(function(req, res, next)
+{
+    return res.send("Server Started");
+});
+
 app.listen(3004, () => console.log("Server started at localhost:3004"));
