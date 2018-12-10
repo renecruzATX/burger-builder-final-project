@@ -4,14 +4,14 @@ const mongoose = require("mongoose");
 
 mongoose.connect("mongodb://user0:password0@ds127954.mlab.com:27954/burger-builder-final-project");
 
-
-const OrderRoutes = require("./OrderRoutes");
-
+const OrderRoutes = require("./orders/OrderRoutes");
+const IngredientsRoutes = require ("./ingredients/IngredientsRoutes");
 const app = express();
 
 app.use(bodyParser.json());
 
 app.use("/orders", OrderRoutes);
+app.use("/ingredients", IngredientsRoutes);
 
 app.use(function(req, res, next)
 {
