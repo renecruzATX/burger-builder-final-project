@@ -29,7 +29,7 @@ class BurgerBuilder extends Component {
     componentDidMount () {
         axios.get('/ingredients')
             .then(response => {                
-                this.setState({ingredients: response.data.shift()})                
+                this.setState({ingredients: response.data.shift()});
             })
             .catch(error => {
                 this.setState({error: true})
