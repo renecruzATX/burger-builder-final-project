@@ -1,4 +1,4 @@
-const IngredientsModel = require("./IngredientsModel");
+const IngredientsModel = require("../models/IngredientsModel");
 
 module.exports.list = function list(req, res) {
     IngredientsModel.find().exec()

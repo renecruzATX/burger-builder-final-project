@@ -1,21 +1,52 @@
+const path = require('path');
+require("dotenv").config();
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 
-mongoose.connect("mongodb://user0:password0@ds127954.mlab.com:27954/burger-builder-final-project");
+mongoose.set("debug", true);
+mongoose.Promise = global.Promise;
+//notice you need to update this with your own database
 
-const OrderRoutes = require("./orders/OrderRoutes");
-const IngredientsRoutes = require ("./ingredients/IngredientsRoutes");
-const app = express();
+mongoose.connect(process.env.mongodburi).then(
+  () => { 
+    console.log("mongoose connected successfully");
+   
+    startWebServer();
+  },
+  err => {
+    console.log("mongoose did not connect",err);
+   }
+);
 
-app.use(bodyParser.json());
+const userRoutes = require("./routes/UserRoutes");
+const sessionRoutes = require("./routes/SessionRoutes");
+const authenticationRoutes = require("./routes/AuthenticationRoutes");
+const OrderRoutes = require("./routes/OrderRoutes");
+const IngredientsRoutes = require ("./routes/IngredientsRoutes");
 
-app.use("/orders", OrderRoutes);
-app.use("/ingredients", IngredientsRoutes);
+const startWebServer = () => {
 
-app.use(function(req, res, next)
-{
-    return res.send("Server Started");
-});
+    const app = express();
 
-app.listen(3004, () => console.log("Server started at localhost:3004"));
+    app.use(bodyParser.json());
+    app.use(express.static("public"));
+
+    app.use(userRoutes);
+    app.use(sessionRoutes);
+    app.use(authenticationRoutes);
+    app.use("/orders", OrderRoutes);
+    app.use("/ingredients", IngredientsRoutes);
+
+    app.get("/canigetthis", function (req, res) {
+        res.send("You got the data. You are authenticated");
+    });
+
+    app.use(function(req, res, next)
+    {
+        return res.send("Server Started");
+    });
+
+    const port = process.env.PORT || 3004;
+    app.listen(port, () => console.log(`Server started at localhost:${port}`));
+}

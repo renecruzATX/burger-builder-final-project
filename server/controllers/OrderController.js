@@ -1,4 +1,4 @@
-const OrderModel = require("./OrderModel");
+const OrderModel = require("../models/OrderModel");
 
 module.exports.list = function list(req, res) {
     OrderModel.find().exec()

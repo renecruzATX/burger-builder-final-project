@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const {list,show,create} = require( "./OrderController");
+const {list,show,create} = require( "../controllers/OrderController");
 
 
 router.get("/", list);
