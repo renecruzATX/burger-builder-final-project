@@ -8,6 +8,29 @@
     box-sizing: border-box;
 }
 
+.wrapper {
+    display: flex;
+    justify-content: space-evenly;    
+}
+
+.button {
+    font: inherit;
+    border: none;
+    background-color: #8F5C2C;
+    color: white;
+    width: 100px;    
+    height: 56px;
+    border-radius: 5px;
+    border-bottom: 4px solid transparent;
+}
+
+.button:hover,
+.button:active,
+.button.active {
+    color: #40A4C8;
+    border-bottom: 4px solid #40A4C8;
+
+}
 
 
 @media (min-width: 600px) {
