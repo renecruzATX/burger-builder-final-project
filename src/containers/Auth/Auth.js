@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 
 import Input from '../../components/UI/Input/Input';
 import Button from '../../components/UI/Button/Button';
+import Spinner from '../../components/UI/Spinner/Spinner';
 import styles from './Auth.module.css';
 import * as actions from '../../store/actions/index';
 
@@ -86,7 +87,7 @@ class Auth extends Component {
             });
         }
         
-        const form = formElementsArray.map(formElement => (
+        let form = formElementsArray.map(formElement => (
             <Input 
                 key={formElement.id} 
                 elementType={formElement.config.elementType}
@@ -100,9 +101,21 @@ class Auth extends Component {
         ));
 
         let message = (!this.state.isSignUp) ? <h3>Welcome Back! Log in for Burger!</h3> : <h3>Sign Up to order a Delicious Burger!</h3>;
+
+        if (this.props.loading) {
+            form = <Spinner/>
+        }
+
+        let errorMessage = null;
+        if (this.props.error) {
+            errorMessage = (
+                <p className={styles.ErrorMessage}>{this.props.error}</p>
+            )            
+        }
             
         return (
             <div className={styles.Auth}>
+                {errorMessage}
                 <div className={styles.wrapper}>
                     <button 
                         onClick={() => this.setState({isSignUp: false})}
@@ -121,10 +134,17 @@ class Auth extends Component {
     };
 };
 
+const mapStateToProps = state => {
+    return {
+        loading: state.auth.loading,
+        error: state.auth.error 
+    }
+};
+
 const mapDispatchToProps = dispatch => {
     return {
         onAuth: (email, password, isSignUp) => dispatch(actions.auth(email, password, isSignUp))
     };
 };
 
-export default connect(null, mapDispatchToProps)(Auth);
+export default connect(mapStateToProps, mapDispatchToProps)(Auth);

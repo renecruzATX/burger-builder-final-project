@@ -42,6 +42,10 @@ const startWebServer = () => {
         res.send("You got the data. You are authenticated");
     });
 
+    /*app.get('*', function(req, res) {
+        res.sendFile(path.join(__dirname, '../', 'public/index.html'));
+      });*/
+
     app.use(function(req, res, next)
     {
         return res.send("Server Started");

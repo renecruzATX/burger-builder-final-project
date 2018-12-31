@@ -8,7 +8,7 @@ const create = (req, res, next) => {
   // If no username or password was supplied return an error
   if (!username || !password) {
     return res.status(422)
-    .json({ error: "You must provide an username and password" });
+    .json({ error: "You must provide a username and password" });
   }
   console.log("Look for a user with the username",username);
   User.findOne({ username: u}).exec()

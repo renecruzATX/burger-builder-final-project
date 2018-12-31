@@ -32,6 +32,11 @@
 
 }
 
+.ErrorMessage {
+    color: red; 
+    text-transform: uppercase;
+}
+
 
 @media (min-width: 600px) {
     .Auth {
