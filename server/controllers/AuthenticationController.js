@@ -7,7 +7,6 @@ const authentication = (req, res, next) => {
   {
     return next();
   }
-  console.log(req.query.auth);
   // get the token from the header
   //const tokenString = req.header("authorization");
   const tokenString = req.query.auth;
