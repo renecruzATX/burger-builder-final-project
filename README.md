@@ -1,3 +1,5 @@
+This is the project that I am submitting for my final project at Austin Coding Academy.  It uses React, Redux, Node, Express, MongoDB, Mongoose, React Thunk and React Router to create a Burger Builder to order delicious burgers online.   
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
