@@ -3,6 +3,7 @@ import Burger from '../../Burger/Burger';
 import Button from '../../UI/Button/Button';
 import styles from './CheckoutSummary.module.css';
 
+//provides a summary of burger chosen and price before submitting order
 const checkoutSummary = (props) => {
     return (
         <div className={styles.CheckoutSummary}>

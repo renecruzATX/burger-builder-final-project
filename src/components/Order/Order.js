@@ -1,9 +1,9 @@
 import React from 'react';
 import styles from './Order.module.css';
 
+//renders an order that is retrieved from the database
 const order = (props) => {
     const ingredients = [];
-
     for (let ingredientName in props.ingredients) {
         ingredients.push(
             {

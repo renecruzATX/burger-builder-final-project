@@ -5,7 +5,7 @@ import {connect} from 'react-redux';
 import CheckoutSummary from '../../components/Order/CheckoutSummary/CheckoutSummary';
 import ContactData from './ContactData/ContactData';
 
-
+//renders the checkout page when continue is clicked
 class Checkout extends Component {
 
     checkoutCancelledHandler = () => {

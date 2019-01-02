@@ -4,9 +4,18 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 
+/*
+Provides a node server using the express library
+mongoDB database with mongoose library
+It holds the ingredients for the burger, past orders, and user info
+I was able to implement the Authentication Project from the advanced class
+hashing with bcrypt
+tokens provided with jwt-simple
+This was not a lot of code to implement but a difficult endeavor none the less
+*/
+
 mongoose.set("debug", true);
 mongoose.Promise = global.Promise;
-//notice you need to update this with your own database
 
 mongoose.connect(process.env.mongodburi).then(
   () => { 

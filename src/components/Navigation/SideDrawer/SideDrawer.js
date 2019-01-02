@@ -5,7 +5,7 @@ import styles from './SideDrawer.module.css';
 import Backdrop from '../../UI/Backdrop/Backdrop';
 import Aux from '../../../hoc/Aux';
 
-
+//renders the sidedrawer in the mobile view
 const sideDrawer = (props) => {
     let attachedStyles = [styles.SideDrawer, styles.Closed];
     if (props.open) {

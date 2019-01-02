@@ -9,7 +9,7 @@ import Input from '../../../components/UI/Input/Input';
 import withErrorHandler from '../../../hoc/withErrorHander/withErrorHandler';
 import * as actions from '../../../store/actions/index';
 
-
+//gathers data from the user to submit to the server
 class ContactData extends Component {
     state = {
         orderForm: {
@@ -96,6 +96,7 @@ class ContactData extends Component {
         formIsValid: false
     }
 
+    //grabs data from order form and submits it to the server
     orderHandler = (event) => {
         event.preventDefault();
         const formData = {};
@@ -113,6 +114,7 @@ class ContactData extends Component {
         this.props.onOrderBurger(data, this.props.token);            
     }
 
+    //checks if inputs are valid from user
     checkValidity(value, rules) {
         let isValid = true;
 
@@ -131,6 +133,7 @@ class ContactData extends Component {
         return isValid;
     }
 
+    //checks the form is valid for submitting
     inputChangeHandler = (event, inputIdentifier) => {
         const updatedOrderForm = {
             ...this.state.orderForm

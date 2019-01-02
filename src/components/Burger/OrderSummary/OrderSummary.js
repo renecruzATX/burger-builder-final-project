@@ -3,11 +3,9 @@ import React, {Component} from 'react';
 import Aux from '../../../hoc/Aux';
 import Button from '../../UI/Button/Button';
 
-class OrderSummary extends Component {
-    componentWillUpdate () {
-        //console.log('[OrderSummary] will update');
-    }
 
+//provides a summary of the burger chosen before moving on to checkout page
+class OrderSummary extends Component {        
     render () {
         const ingredientSummary = Object.keys(this.props.ingredients)
         .map(igKey=>{

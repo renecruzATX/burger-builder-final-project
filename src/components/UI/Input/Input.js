@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './Input.module.css';
 
+//presentational input component that takes props and passes on values
 const input = (props) => {
     let inputElement = null;
     const inputStyles = [styles.InputElement];

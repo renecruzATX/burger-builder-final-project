@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import styles from './BurgerIngredient.module.css';
 
-
+//renders each ingredient through CSS
 class BurgerIngredient extends Component {
     render () {
         let ingredient = null;

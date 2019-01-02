@@ -11,17 +11,19 @@ import withErrorHandler from '../../hoc/withErrorHander/withErrorHandler';
 import axios from 'axios';
 import * as actions from '../../store/actions/index';
 
-
+//renders the main burger builder container where the burger is built and ordered
 class BurgerBuilder extends Component {
     state = {
         purchasing: false,
         
     }
 
+    //initializes the ingredients from the server
     componentDidMount () {
         this.props.onInitIngredients();
     }
 
+    //lets the app know that there are ingredients in the burger and are available to purchase
     updatePurchaseState (ingredients) {
         const sum = Object.keys(ingredients)
         .map(igKey=>{
@@ -33,6 +35,7 @@ class BurgerBuilder extends Component {
         return sum > 0;
     }
 
+    //moves to the checkout summary page if submit button is clicked    
     purchaseHandler = () => {
         if (this.props.isAuthenticated) {
             this.setState({purchasing: true});
@@ -42,10 +45,12 @@ class BurgerBuilder extends Component {
         };
     };
 
+    //cancels order if cancel button is clicked
     purchaseCancelHandler = () => {
         this.setState({purchasing: false});
     }
 
+    //continues to gather order info 
     purchaseContinueHandler = () => {
         this.props.onInitPurchase();                    
         this.props.history.push('/checkout');

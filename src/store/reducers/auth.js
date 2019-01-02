@@ -1,5 +1,7 @@
 import * as actionTypes from '../actions/actionTypes';
 
+//contains all the state available for the authorization
+
 const initialState =  {
     token: null,
     userId: null,

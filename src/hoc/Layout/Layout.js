@@ -6,6 +6,7 @@ import styles from './Layout.module.css';
 import Toolbar from '../../components/Navigation/Toolbar/Toolbar';
 import SideDrawer from '../../components/Navigation/SideDrawer/SideDrawer';
 
+//higher order component that gives the whole app its look
 class Layout extends Component {
     state ={
          showSideDrawer: false,

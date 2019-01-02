@@ -3,6 +3,7 @@ import React from 'react';
 import styles from './BuildControls.module.css';
 import BuildControl from './BuildControl/BuildControl.js'
 
+//provides the ingredients desired for the burger
 const controls = [
     {label: 'Lettuce', type: 'lettuce'},
     {label: 'Bacon', type: 'bacon'},
@@ -10,6 +11,7 @@ const controls = [
     {label: 'Meat', type: 'meat'},
 ];
 
+//automatically renders the ingredients available in the burger builder
 const buildControls = (props) => (
     <div className={styles.BuildControls}>
         <p>Current Price: $<strong>{props.price.toFixed(2)}</strong></p>

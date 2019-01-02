@@ -12,18 +12,23 @@ import burgerBuilderReducer from './store/reducers/burgerBuilder';
 import orderReducer from './store/reducers/order';
 import authReducer from './store/reducers/auth';
 
+//enables Redux dev tools in browsers
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
+//combines all the reducer files created so they can be passed to createStore()
 const rootReducer = combineReducers({
     burgerBuilder: burgerBuilderReducer,
     order: orderReducer,
     auth: authReducer
 });
 
+//creates Redux store to manage state for the app
 const store = createStore(rootReducer, composeEnhancers(
     applyMiddleware(thunk)
 ));
 
+//Provider enables redux for the app
+//BrowserRouter enables switching between pages without refreshing the app
 const app = (
     <Provider store={store}> 
         <BrowserRouter>

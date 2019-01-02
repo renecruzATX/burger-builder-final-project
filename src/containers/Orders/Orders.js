@@ -7,8 +7,9 @@ import Order from '../../components/Order/Order';
 import * as actions from '../../store/actions/index';
 import Spinner from '../../components/UI/Spinner/Spinner';
 
+//renders past orders on the Orders page
 class Orders extends Component {
-    
+    //initializes the orders from the server
     componentDidMount () {
         this.props.onFetchOrders(this.props.token);
     }

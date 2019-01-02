@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './BuildControl.module.css';
 
+//presentational component that renders the buttons that add or remove ingredients to the burger
 const buildControl = (props) => (
     <div className={styles.BuildControl}>
         <div className={styles.Label}>{props.label}</div>

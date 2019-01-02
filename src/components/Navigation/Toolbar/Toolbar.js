@@ -4,6 +4,7 @@ import Logo from '../../Logo/Logo';
 import NavigationItems from '../NavigationItems/NavigationItems';
 import DrawerToggle from '../SideDrawer/DrawerToggle/DrawerToggle';
 
+//renders the toolbar at the top of the app and changes for mobile
 const toolbar = (props) => (
     <header className={styles.Toolbar}>
         <DrawerToggle  clicked={props.drawerToggleClicked}/>

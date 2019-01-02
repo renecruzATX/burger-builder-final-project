@@ -1,6 +1,8 @@
 import * as actionTypes from './actionTypes';
 import axios from 'axios';
 
+//all the actions available to the Auth container
+
 export const authStart = () => {
     return {
         type: actionTypes.AUTH_START

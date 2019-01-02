@@ -1,5 +1,7 @@
 import * as actionTypes from '../actions/actionTypes';
 
+//contains all the state available for ordering the burger
+
 const initialState = {
     orders: [],
     loading: false,

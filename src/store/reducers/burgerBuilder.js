@@ -1,5 +1,7 @@
  import * as actionTypes from '../actions/actionTypes';
 
+//contains all the state available to the burger builder
+
 const initialState = {
     ingredients: null,
     totalPrice: 4,
